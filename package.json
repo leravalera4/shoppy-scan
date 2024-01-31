@@ -1,0 +1,36 @@
+{
+  "name": "products",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^4.29.5",
+    "@lordicon/react": "^1.4.1",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@next/font": "^14.0.4",
+    "animejs": "^3.2.2",
+    "axios": "^1.6.2",
+    "lord-icon-element": "^4.1.2",
+    "lottie-web": "^5.12.2",
+    "next": "14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
+    "react-medium-image-zoom": "^5.1.10",
+    "react-sliding-pane": "^7.3.0",
+    "react-sticky": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "typescript": "^5"
+  }
+}
