@@ -4,10 +4,6 @@ import axios from "axios";
 import localFont from "next/font/local";
 import { Carattere, Lora } from "next/font/google";
 import { Playfair } from "next/font/google";
-import Header from "./Header.jsx";
-import Cart from "./Card.jsx";
-import Products from "./Products.jsx";
-import Draggable, { DraggableCore } from "react-draggable";
 import "./DraggableSticky.css";
 import Image from "next/image.js";
 import basket from "./images/basket.png";
@@ -16,6 +12,9 @@ import "react-medium-image-zoom/dist/styles.css";
 import "./cart.css"
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
+import dynamic from 'next/dynamic'
+
+const Header = dynamic(()=>import("./Header"),{ssr:false})
 
 const noir = localFont({
   src: [
@@ -77,6 +76,10 @@ const StoreSelector = () => {
     isPaneOpen: false,
     isPaneOpenLeft: false,
   });
+
+  useEffect(() => {
+    console.log(document.title);
+  }, []);
 
   function toggle() {
     setIsOpen((isOpen) => !isOpen);
@@ -196,10 +199,6 @@ const StoreSelector = () => {
     }
   };
 
-  // const lengthMatchesArray = responseData.map(
-  //   (product) => selectedAll.length === product.products.length
-  // );
-
   const handleAddToCart = async (product) => {
     if (!product) {
       console.error("Invalid product");
@@ -240,12 +239,6 @@ const StoreSelector = () => {
 
         shop.sum = shop.items.reduce((prev, curr) => prev + curr.price, 0);
       }
-
-      // updatedCart.forEach((store) => {
-      //   const itemsCount = store.items.length;
-      //   console.log(`Store ${store.storeName} has ${itemsCount} items.`);
-      // });
-
       const maxItemsLength = Math.max(
         ...updatedCart.map((store) => store.items.length)
       );
@@ -273,22 +266,6 @@ const StoreSelector = () => {
       saveCartData(updatedCart);
       setCartTrigger({});
       setIsAnimating(true);  
-      // setTimeout(setIsAnimating(false))   
-    
-
-      // const zeroPriceIndexes = [];
-
-      // updatedCart.forEach((store) => {
-      //   store.items.forEach((item, itemIndex) => {
-      //     if (item.price === 0) {
-      //       zeroPriceIndexes.push(itemIndex);
-      //     }
-      //   });
-      // });
-
-      // console.log(zeroPriceIndexes);
-
-      // Additional actions with the cart, if necessary
     } catch (error) {
       console.error("Error adding to cart:", error);
       // Handle errors appropriately
@@ -561,13 +538,6 @@ const StoreSelector = () => {
                     "kg"
                   : item.products[0].prices.size}
               </div>
-              {/* {lengthMatchesArray[index] ? (
-                <button onClick={() => handleAddToCart(item)}>
-                  Add to Cart
-                </button>
-              ) : (
-                ""
-              )} */}
               <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
               <div style={{ display: "flex", paddingBottom: "20px" }}>
                 <div style={{ paddingRight: "20px", flexDirection: "row" }}>
@@ -664,23 +634,6 @@ const StoreSelector = () => {
           ))}
         </div>
       </div>
-      {/* <div style={{zIndex:'2',width:'100%',height:'100%',backgroundColor:'rgba(0,0,0,0.5)'}}>
-      {isOpen && <div style={{ display: "flex", flexDirection: "row",opacity:'100',transition:"all .75s ease"}}>
-        {cart.map((store, storeIndex) => (
-          <div key={storeIndex}>
-            <h3>{store.storeName}</h3>
-            <ol>
-              {store.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{item.name + " " + "$" + item.price}</li>
-              ))}
-            </ol>
-          </div>
-        ))}
-      </div>}
-      <button onClick={toggle}>Toggle show</button>
-      </div> */}
-
-
       {cart.length != 0 && (
         <div
           style={{
@@ -733,30 +686,8 @@ const StoreSelector = () => {
         ))}
       </div>
       </SlidingPane>
-      {/* <Products addToCart={addToCart} />
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} /> */}
     </div>
   );
 };
 
 export default StoreSelector;
-
-{
-  /* <div style="padding-right: 20px; flex-direction: row;"><div style="display: flex; flex-direction: row; align-items: center;"><p style="padding-right: 20px;">Newmarket</p><p style="font-weight: 500;">$1 ea</p><s style="
-    padding-right: 16px;
-">(1.99)</s><div style="
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 12px;
-    border: 1px solid red;
-    padding: 4px;
-"><p style="
-    display: flex;
-    margin: 2px;
-    font-weight: 500;
-">SAVE $0.99</p><p style="
-    margin: 0px;
-    color: gray;
-">ENDS 01/09</p></div></div><div style="display: flex; flex-direction: row; align-items: center;"><p style="padding-right: 20px;">Maxi Mont-Tremblant rte. 117</p><p style="font-weight: 500;">$2.99 ea</p><div><p></p><p></p></div></div></div> */
-}
