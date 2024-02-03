@@ -113,7 +113,7 @@ const StoreSelector = () => {
 
   useEffect(() => {
     axios
-      .get("https://shopsssss.azurewebsites.net/api/stores")
+      .get("https://shoppp.azurewebsites.net/api/stores")
       .then((response) => {
         setAvailableStores(response.data);
       })
@@ -127,7 +127,7 @@ const StoreSelector = () => {
     setSelectedStore(selectedStore); //сюда кладем выбранный из списка магазин (из массива выбираем один из)
     try {
       const response = await axios.get(
-        `https://shopsssss.azurewebsites.net/api/stores/${selectedStore}`
+        `https://shoppp.azurewebsites.net/api/stores/${selectedStore}`
       );
 
       if (response.status === 200) {
@@ -166,7 +166,7 @@ const StoreSelector = () => {
   const handleButtonClick = async () => {
     try {
       const response = await axios.post(
-        "https://shopsssss.azurewebsites.net/api/updateLocation",
+        "https://shoppp.azurewebsites.net/api/updateLocation",
         {
           selectedStoresID: selectedStoresID,
           searchText: searchText,
