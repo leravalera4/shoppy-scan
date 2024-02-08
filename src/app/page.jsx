@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { Carattere, Lora } from "next/font/google";
 import { Playfair } from "next/font/google";
 import "./DraggableSticky.css";
+import basket from "./images/icon.png";
 import Image from "next/image.js";
 import basket from "./images/basket.png";
 import Zoom from "react-medium-image-zoom";
