@@ -725,8 +725,8 @@ const StoreSelector = () => {
         </div>
       )} 
        <SlidingPane
-        className="some-custom-class"
-        overlayClassName="some-custom-overlay-class"
+        className={noir.className}
+        overlayClassName={noir.className}
         isOpen={state.isPaneOpen}
         title="Cart"
         onRequestClose={() => {
