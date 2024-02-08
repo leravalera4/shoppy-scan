@@ -202,7 +202,7 @@ const StoreSelector = () => {
     }
   };
 
-  const handleAddToCart = async (product) => {
+  const handleAddToCart = async (product,index) => {
     if (!product) {
       console.error("Invalid product");
       return;
