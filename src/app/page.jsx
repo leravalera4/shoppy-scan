@@ -13,8 +13,8 @@ import "./cart.css"
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import dynamic from 'next/dynamic'
-
-const Header = dynamic(()=>import("./Header"),{ssr:false})
+import Header from "../components/header";
+// const Header = dynamic(()=>import("./Header"),{ssr:false})
 
 const noir = localFont({
   src: [
