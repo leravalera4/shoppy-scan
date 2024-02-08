@@ -71,6 +71,9 @@ const StoreSelector = () => {
   const [error, setError] = useState();
   const [isAnimating, setIsAnimating] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(
+    Array(responseData.length).fill(false)
+  );
 
   const [state, setState] = useState({
     isPaneOpen: false,
@@ -266,6 +269,16 @@ const StoreSelector = () => {
       saveCartData(updatedCart);
       setCartTrigger({});
       setIsAnimating(true);  
+      const updatedAddedToCart = [...addedToCart];
+      updatedAddedToCart[index] = true;
+      setAddedToCart(updatedAddedToCart);
+
+      setTimeout(() => {
+      const resetAddedToCart = [...updatedAddedToCart];
+        resetAddedToCart[index] = false;
+        setAddedToCart(resetAddedToCart);
+      }, 3000);
+      
     } catch (error) {
       console.error("Error adding to cart:", error);
       // Handle errors appropriately
@@ -538,7 +551,29 @@ const StoreSelector = () => {
                     "kg"
                   : item.products[0].prices.size}
               </div>
-              <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
+                            <button
+                className={noir.className}
+                style={{
+                  outline: "0",
+                  cursor: "pointer",
+                  padding: "5px 16px",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  lineHeight: "20px",
+                  verticalAlign: "middle",
+                  border: "1px solid",
+                  borderRadius: " 6px",
+                  color: " #24292e",
+                  backgroundColor: "#fafbfc",
+                  borderColor: "#1b1f2326",
+                  boxShadow:
+                    "rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset",
+                  transition: "0.2s cubic-bezier(0.3, 0, 0.5, 1)",
+                }}
+                onClick={() => handleAddToCart(item, index)}
+              >
+                {addedToCart[index] ? "Added to cart" : "Add to Cart"}
+              </button>
               <div style={{ display: "flex", paddingBottom: "20px" }}>
                 <div style={{ paddingRight: "20px", flexDirection: "row" }}>
                   {item.products.map((store, index) => (
