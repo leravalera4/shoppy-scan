@@ -481,7 +481,7 @@ const StoreSelector = () => {
             flexDirection: "row",
             flexWrap: "wrap",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "stretch",
           }}
         >
           {responseData.map((item, index) => (
