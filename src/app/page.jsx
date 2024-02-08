@@ -646,8 +646,37 @@ const StoreSelector = () => {
             alignItems: "center",
           }}
         >
-          <Image alt="shopping" src={basket} width={80} height={80} className={`animated-image ${isAnimating ? 'tilt-shaking' : ''}`}/>
-          <button onClick={() => setState({ isPaneOpen: true })}>Show Cart</button>
+          <Image
+            alt="shopping"
+            src={basket}
+            width={120}
+            height={120}
+            onClick={() => setState({ isPaneOpen: true })}
+            className={`animated-image ${isAnimating ? "tilt-shaking" : ""}`}
+          />
+          <button
+            className={noir.className}
+            style={{
+              outline: "0",
+              cursor: "pointer",
+              padding: "5px 16px",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+              verticalAlign: "middle",
+              border: "1px solid",
+              borderRadius: " 6px",
+              color: " #24292e",
+              backgroundColor: "#fafbfc",
+              borderColor: "#1b1f2326",
+              boxShadow:
+                "rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset",
+              transition: "0.2s cubic-bezier(0.3, 0, 0.5, 1)",
+            }}
+            onClick={() => setState({ isPaneOpen: true })}
+          >
+            Show Cart
+          </button>
           <div
             style={{
               //position: "sticky",
