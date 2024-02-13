@@ -6,7 +6,6 @@ import { Carattere, Lora } from "next/font/google";
 import { Playfair } from "next/font/google";
 import "./DraggableSticky.css";
 import basket from "./images/icon.png";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import Image from "next/image.js";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
