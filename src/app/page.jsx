@@ -14,6 +14,7 @@ import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import dynamic from 'next/dynamic'
 import Header from "../components/header";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 // const Header = dynamic(()=>import("./Header"),{ssr:false})
 
 const noir = localFont({
