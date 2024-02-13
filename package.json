@@ -13,6 +13,7 @@
     "@lordicon/react": "^1.4.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@next/font": "^14.0.4",
+    "@vercel/speed-insights": "^1.0.9",
     "animejs": "^3.2.2",
     "axios": "^1.6.2",
     "lord-icon-element": "^4.1.2",
@@ -23,14 +24,20 @@
     "react-draggable": "^4.4.6",
     "react-medium-image-zoom": "^5.1.10",
     "react-sliding-pane": "^7.3.0",
-    "react-sticky": "^6.0.3"
+    "react-sticky": "^6.0.3",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
     "typescript": "^5"
   }
 }
