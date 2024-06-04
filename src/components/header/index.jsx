@@ -28,7 +28,7 @@ const noir = localFont({
   ],
 });
 
-const Header = ({ cart }) => {
+const Header = () => {
 
   const [isSticky, setIsSticky] = React.useState(false);
 

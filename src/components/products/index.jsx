@@ -138,12 +138,12 @@ const Products = ({ cartData }) => {
       const selectedLocation = JSON.parse(localStorage.getItem("selectedLocation"));
       const store1 = JSON.parse(localStorage.getItem("store1"));
       const selectedAll = JSON.parse(localStorage.getItem("selectedAll"));
-      const responseData1 = JSON.parse(localStorage.getItem("responseData1"));
+      //const responseData1 = JSON.parse(localStorage.getItem("responseData1"));
       console.log(selectedStore)
       setSelectedLocation(selectedLocation)
       setSelectedStore(selectedStore)
       setSelectedStoresID(store1)
-      setResponseData(responseData);
+      //setResponseData(responseData);
     });
   }, [selectedLocation,selectedStore,selectedAll,selectedStoresID]);
  
@@ -689,12 +689,12 @@ const removeStore = (storeId) => {
     const data = JSON.parse(localStorage.getItem("stores1"))
     console.log(data)
     const updatedData = JSON.parse(localStorage.getItem("sel"))
-    //const updatedData3 = JSON.parse(localStorage.getItem("storesName"))
+    const updatedData3 = JSON.parse(localStorage.getItem("storesName"))
     // Filter out the store with the given ID from the data array
     const updatedData1 = updatedData.filter((store) => store.id != storeId);
-    //const updatedData4 = updatedData3.filter((store) => store.id != storeId);
+    const updatedData4 = updatedData3.filter((store) => store.id != storeId);
     localStorage.setItem("sel", JSON.stringify(updatedData1));
-    //localStorage.setItem("storesName", JSON.stringify(updatedData4));
+    localStorage.setItem("storesName", JSON.stringify(updatedData4));
     setSelectedAll(updatedData1);
     const da = data.filter((store) => store != storeId);
     console.log("da",da)

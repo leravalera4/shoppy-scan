@@ -8,16 +8,15 @@ import { useState, useEffect } from "react";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import "../products/products.css";
-import generatePDF from "react-to-pdf";
+import generatePDF, { Margin } from "react-to-pdf";
 import Spiner from "../spiner";
 
 const options = {
   filename: "test.pdf",
-  overrides: {
-    canvas: {
-      imageTimeout: 10000,
-    },
-  },
+  page: {
+    margin:Margin.SMALL,
+ },
+
 };
 
 const noir = localFont({
@@ -160,8 +159,11 @@ const Cart = () => {
     localStorage.setItem("stores", JSON.stringify(da));
   };
 
-  const title = JSON.parse(localStorage.getItem("names"));
-  const storesName = JSON.parse(localStorage.getItem("storesName"));
+  let title,storesName;
+  if(typeof window !== 'undefined'){
+    title = JSON.parse(localStorage.getItem("names"));
+    storesName = JSON.parse(localStorage.getItem("storesName"));
+    }
 
   const mergedData = data.map((item) => {
     const match = storesName.find((store) => store.id == item.id);
@@ -294,6 +296,7 @@ const Cart = () => {
                 <>
                   {title ? (
                     <div style={{ marginRight: "24px" }}>
+                      <p style={{display:"none"}}>Lalalala</p>
                       <p
                         style={{
                           width: "144px",

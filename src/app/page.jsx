@@ -59,7 +59,7 @@ const play = Playfair({
   display: 'swap',
 });
 
-const StoreSelector = ({cartData}) => {
+const StoreSelector = () => {
   const [availableStores, setAvailableStores] = useState([]); //тут весь список магазинов
   const [selectedStore, setSelectedStore] = useState(null); //выбранный магазин из списка
   const [locations, setLocations] = useState([]); //массив из всех локаций выбранного магазина

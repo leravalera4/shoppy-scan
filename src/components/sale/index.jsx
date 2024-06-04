@@ -232,7 +232,7 @@ const Index = () => {
         localStorage.setItem("storedField", ItemCode);
       };
       //console.log(storesData);
-      setLoading(false);
+      setLoading(false);q
       setFirstTime(false);
       saveCartData(newStoreLocationObject);
     } catch (error) {
