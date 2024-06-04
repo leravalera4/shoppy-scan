@@ -34,7 +34,7 @@
     "react-scrollbars-custom": "^4.1.1",
     "react-sliding-pane": "^7.3.0",
     "react-sticky": "^6.0.3",
-    "react-to-pdf": "^1.0.1",
+    "react-to-pdf": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
